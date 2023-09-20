@@ -1,0 +1,345 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <img src="..\assets\images\logo.png" class="logo" />
+            <div class="header-main">
+                <div class="employee">EMPLOYEE</div>
+                <div class="payroll">PAYROLL</div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="container-main">
+                <div class="container-padding">
+                    <div class="container-header">Employee Payroll Form</div>
+                    <div class="label-container">
+                        <label class="label-header">Name</label>
+                        <div class="input-field">
+                            <input type="text" placeholder="Enter Name" class="input-text" onchange="nameChange(event)">
+                        </div>
+                    </div>
+                    <div class="label-container">
+                        <label class="label-header">Profile Image</label>
+                        <div class="radio-field">
+                            <input type="radio" id="image1" name="image" value="1" class="input-radio"
+                                onchange="profileImageChange(event)">
+                            <label><img src="..\assets\profile-images\Ellipse 1.png"></label>
+                            <input type="radio" id="image2" name="image" value="2" class="input-radio"
+                                onchange="profileImageChange(event)">
+                            <label><img src="..\assets\profile-images\Ellipse -2.png"></label>
+                            <input type="radio" id="image3" name="image" value="3" class="input-radio"
+                                onchange="profileImageChange(event)">
+                            <label><img src="..\assets\profile-images\Ellipse -1.png"></label>
+                            <input type="radio" id="image4" name="image" value="4" class="input-radio"
+                                onchange="profileImageChange(event)">
+                            <label><img src="..\assets\profile-images\Ellipse -3.png"></label>
+                        </div>
+                    </div>
+                    <div class="label-container">
+                        <label class="label-header">Gender</label>
+                        <div class="radio-field-gender">
+                            <input type="radio" id="male" name="gender" value="M" class="input-radio"
+                                onchange="genderChange(event)">
+                            <label class="gender-font" style="padding-right: 15px;">Male</label>
+                            <input type="radio" id="female" name="gender" value="F" class="input-radio"
+                                onchange="genderChange(event)">
+                            <label class="gender-font">Female</label>
+                        </div>
+                    </div>
+                    <div class="label-container">
+                        <label class="label-header">Department</label>
+                        <div class="radio-field">
+                            <input type="checkbox" id="checkbox1" name="dept" value="HR" class="input-checkbox"
+                                onchange="deptChange(event)">
+                            <label>HR</label>
+                            <input type="checkbox" id="checkbox2" name="dept" value="Sales" class="input-checkbox"
+                                onchange="deptChange(event)">
+                            <label>Sales</label>
+                            <input type="checkbox" id="checkbox3" name="dept" value="Finance" class="input-checkbox"
+                                onchange="deptChange(event)">
+                            <label>Finance</label>
+                            <input type="checkbox" id="checkbox4" name="dept" value="Engineer" class="input-checkbox"
+                                onchange="deptChange(event)">
+                            <label>Engineer</label>
+                            <input type="checkbox" id="checkbox5" name="dept" value="Others" class="input-checkbox"
+                                onchange="deptChange(event)">
+                            <label>Others</label>
+                        </div>
+                    </div>
+                    <div class="label-container">
+                        <label class="label-header">Salary</label>
+                        <div class="input-field">
+                            <select id="salary" name="salary" onchange="salaryChange(event)">
+                                <option value="">Select</option>
+                                <option value="10000">10000</option>
+                                <option value="20000">20000</option>
+                                <option value="30000">30000</option>
+                                <option value="40000">40000</option>
+                                <option value="50000">50000</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="label-container">
+                        <label class="label-header">Start Date</label>
+                        <div class="input-field">
+                            <select class="common-date" id="day" name="day" onchange="dayChange(event)">
+                                <option value="">Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <select class="common-date" id="month" name="month" onchange="monthChange(event)">
+                                <option value="">Select</option>
+                                <option value="Jan">Jan</option>
+                                <option value="Feb">Feb</option>
+                                <option value="Mar">Mar</option>
+                                <option value="Apr">Apr</option>
+                                <option value="May">May</option>
+                            </select>
+                            <select class="common-date" id="year" name="year" onchange="yearChange(event)">
+                                <option value="">Select</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="label-container-text">
+                        <label class="label-header">Notes</label>
+                        <div class="input-field">
+                            <textarea type="text" id="notes" placeholder="Comments" class=textarea-text
+                                onchange="commentsChange(event)"></textarea>
+                        </div>
+                    </div>
+                    <div class="button-div">
+                        <button class="button-common" onclick="cancelClick()">Cancel</button>
+                        <div>
+                            <button class="button-common" onclick="submitClick()">Submit</button>
+                            <button class="button-common" onclick="resetClick()">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let name = "";
+    let profileImage = "";
+    let gender = "";
+    let dept = "";
+    let sal = "";
+    let day = "", month = "", year = "";
+    let comment = "";
+    function nameChange(event) {
+        name = event.target.value;
+    }
+    function profileImageChange(event) {
+        profileImage = event.target.value;
+    }
+    function genderChange(event) {
+        gender = event.target.value;
+    }
+    function deptChange(event) {
+        dept = event.target.value;
+    }
+    function salaryChange(event) {
+        sal = event.target.value;
+    }
+    function dayChange(event) {
+        day = event.target.value;
+    }
+    function monthChange(event) {
+        month = event.target.value;
+    }
+    function yearChange(event) {
+        year = event.target.value;
+    }
+    function commentsChange(event) {
+        comment = event.target.value;
+    }
+    function submitClick(){
+        console.log(name+"\n"+profileImage+"\n"+gender+"\n"+dept+"\n"+sal+"\n"+day+":"+month+":"+year+"\n");
+        var obj={
+            name:name,
+            profileImage:profileImage,
+            gender:gender,
+            department:dept,
+            salary:sal,
+            dob:day+":"+month+":"+year,
+            comments:comment
+        }
+        localStorage.setItem("EmpObject",obj);
+        var retrieval = localStorage.getItem("EmpObject");
+        console.log(retrieval);
+    }
+    function resetClick(){
+        name="";
+        document.getElementById("name").value="";
+        sal="";
+        document.getElementById("salary").value="";
+    }
+    function cancelClick(){
+        window.location.href("employeeHome.html");
+    }
+</script>
+<style>
+    .button-div {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+    }
+
+    .button-common {
+        background: #E2E2E2 0% 0% no-repeat padding-box;
+        border: 1px solid #969696;
+        border-radius: 5px;
+        height: 35px;
+        width: 60px;
+        font: normal normal normal 16px/19px Roboto;
+        letter-spacing: 0px;
+        color: #42515F;
+    }
+
+    .gender-font {
+        font: normal normal normal 18px/24px Roboto;
+        letter-spacing: 0px;
+        color: #42515F;
+    }
+
+    .logo {
+        width: 50px;
+        height: 47px;
+        padding-right: 3px;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        padding-left: 120px;
+        height: 80px;
+    }
+
+    .header-main {
+        width: 127px;
+    }
+
+    .employee {
+        height: 24px;
+        font: normal normal bold 22px/25px Montserrat;
+        color: #82A70C;
+    }
+
+    .payroll {
+        height: 24px;
+        font: normal normal bold 22px/25px Montserrat;
+    }
+
+    .container {
+        height: calc(100% - 80px);
+        background: #F7F7F7 0% 0% no-repeat padding-box;
+        padding: 0px 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container-main {
+        width: 70%;
+        height: 100%;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+        border: 1px solid #F5F5F5;
+        border-radius: 8px;
+    }
+
+    .container-padding {
+        padding: 40px 80px;
+    }
+
+    .container-header {
+        height: 41px;
+        font: normal normal bold 28px/37px Roboto;
+        letter-spacing: 0px;
+        color: #42515F;
+    }
+
+    input.input-text {
+        width: 450px;
+        height: 32px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        border: 1px solid #BDBDBD;
+        border-radius: 3px;
+        padding-left: 6px;
+    }
+
+    .label-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 20px;
+    }
+
+    label.label-header {
+        font: normal normal normal 18px/24px Roboto;
+        letter-spacing: 0px;
+        color: #42515F;
+        width: 100px;
+    }
+
+    .radio-field {
+        display: flex;
+        width: 450px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .radio-field-gender {
+        width: 450px;
+    }
+
+    #salary {
+        width: 200px;
+        height: 37px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        border: 1px solid #BDBDBD;
+        border-radius: 3px;
+    }
+
+    .input-field {
+        width: 450px;
+    }
+
+    .common-date {
+        height: 37px;
+        width: 85px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        border: 1px solid #BDBDBD;
+        border-radius: 3px;
+    }
+
+    .label-container-text {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 20px;
+    }
+
+    textarea.textarea-text {
+        width: 450px;
+        height: 50px;
+    }
+</style>
+
+</html>

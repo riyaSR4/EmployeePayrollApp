@@ -1,0 +1,183 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <img src="..\assets\images\logo.png" class="logo" />
+            <div class="header-main">
+                <div class="employee">EMPLOYEE</div>
+                <div class="payroll">PAYROLL</div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="container-main">
+                <div class="employee-details">
+                    Employee Details
+                </div>
+                <div class="icon-button">
+                    <img src="..\assets\icons\attach_file-24px.svg" />
+                    <div class="add">
+                        <img src="..\assets\icons\add-24px.svg" />
+                        <button class="add-button"><a class="href-change" href=".\addEmployee.html">Add
+                                User</a></button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <table class="table-emp">
+                    <tr>
+                        <th></th>
+                        <th style="text-align: left;">Name</th>
+                        <th style="text-align: left;">Gender</th>
+                        <th style="text-align: left;">Department</th>
+                        <th style="text-align: left;">Salary</th>
+                        <th style="text-align: left;">Start Date</th>
+                        <th style="text-align: left;">Actions</th>
+                    </tr>
+                    <tr class="table-row">
+                        <td><img style="width: 30px;" src="..\assets\profile-images\Ellipse 1.png"></td>
+                        <td>Amarpa Keerthi Kumar</td>
+                        <td>Female</td>
+                        <td></td>
+                        <td>10,000</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="table-row">
+                        <td><img style="width: 30px;" src="..\assets\profile-images\Ellipse -1.png"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="table-row">
+                        <td><img style="width: 30px;" src="..\assets\profile-images\Ellipse -2.png"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="table-row">
+                        <td><img style="width: 30px;" src="..\assets\profile-images\Ellipse -3.png"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="table-row">
+                        <td><img style="width: 30px;" src="..\assets\profile-images\Ellipse -4.png"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    .logo {
+        width: 50px;
+        height: 47px;
+        padding-right: 3px;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        padding-left: 120px;
+        height: 80px;
+    }
+
+    .header-main {
+        width: 127px;
+    }
+
+    .employee {
+        height: 24px;
+        font: normal normal bold 22px/25px Montserrat;
+        color: #82A70C;
+    }
+
+    .payroll {
+        height: 24px;
+        font: normal normal bold 22px/25px Montserrat;
+    }
+
+    .container {
+        height: calc(100% - 80px);
+        background: #F7F7F7 0% 0% no-repeat padding-box;
+        padding: 0px 120px;
+        padding-top: 20px;
+    }
+
+    .container-main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 25px;
+    }
+
+    .employee-details {
+        font: normal normal bold 20px/25px Roboto;
+        letter-spacing: 0px;
+        color: #42515F;
+    }
+
+    .icon-button {
+        display: flex;
+        width: 130px;
+        justify-content: space-between;
+    }
+
+    button.add-button {
+        border: none;
+        background: none;
+        color: white;
+    }
+
+    .add {
+        display: flex;
+        background: #82A70C;
+    }
+
+    .href-change {
+        text-decoration: none;
+        color: white;
+    }
+
+    .table-emp {
+        background: #42515F 0% 0% no-repeat padding-box;
+        border-radius: 3px 3px 0px 0px;
+        width: 100%;
+        font-size: 14px;
+        letter-spacing: 0px;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        height: 30px;
+        border-collapse: collapse;
+    }
+    .table-row{
+        background: white;
+        color: black;
+        border: none;
+        height: 40px;
+    }
+</style>
+
+</html>
