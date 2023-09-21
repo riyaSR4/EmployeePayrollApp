@@ -31,7 +31,7 @@
             </div>
             <div>
                 <table class="table-emp">
-                    <tr>
+                    <tr id="upper-case">
                         <th></th>
                         <th style="text-align: left;">Name</th>
                         <th style="text-align: left;">Gender</th>
@@ -44,52 +44,128 @@
                         <td><img style="width: 30px;" src="..\assets\profile-images\Ellipse 1.png"></td>
                         <td>Amarpa Keerthi Kumar</td>
                         <td>Female</td>
-                        <td></td>
+                        <td>
+                            <label class="department">Sales</label>
+                            <label class="department">HR</label>
+                            <label class="department">Finance</label>
+                        </td>
                         <td>10,000</td>
-                        <td></td>
-                        <td></td>
+                        <td>29 Oct 2019</td>
+                        <td>
+                            <img src="..\assets\icons\delete-black-18dp.svg" class="action" />
+                            <img src="..\assets\icons\create-black-18dp.svg" class="action" />
+                        </td>
                     </tr>
                     <tr class="table-row">
                         <td><img style="width: 30px;" src="..\assets\profile-images\Ellipse -1.png"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>Mohammed Salman Iqbal</td>
+                        <td>Female</td>
+                        <td>
+                            <label class="department">Sales</label>
+                            <label class="department">HR</label>
+                            <label class="department">Finance</label>
+                        </td>
+                        <td>10,000</td>
+                        <td>29 Oct 2019</td>
+                        <td>
+                            <img src="..\assets\icons\delete-black-18dp.svg" class="action" />
+                            <img src="..\assets\icons\create-black-18dp.svg" class="action" />
+                        </td>
                     </tr>
                     <tr class="table-row">
                         <td><img style="width: 30px;" src="..\assets\profile-images\Ellipse -2.png"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>Bubere Qais Mohammed</td>
+                        <td>Male</td>
+                        <td>
+                            <label class="department">Sales</label>
+                            <label class="department">HR</label>
+                            <label class="department">Finance</label>
+                        </td>
+                        <td>10,000</td>
+                        <td>29 Oct 2019</td>
+                        <td>
+                            <img src="..\assets\icons\delete-black-18dp.svg" class="action" />
+                            <img src="..\assets\icons\create-black-18dp.svg" class="action" />
+                        </td>
                     </tr>
                     <tr class="table-row">
                         <td><img style="width: 30px;" src="..\assets\profile-images\Ellipse -3.png"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>Amarpa Keerthi Kumar</td>
+                        <td>Male</td>
+                        <td>
+                            <label class="department">Sales</label>
+                            <label class="department">HR</label>
+                            <label class="department">Finance</label>
+                        </td>
+                        <td>10,000</td>
+                        <td>29 Oct 2019</td>
+                        <td>
+                            <img src="..\assets\icons\delete-black-18dp.svg" class="action" />
+                            <img src="..\assets\icons\create-black-18dp.svg" class="action" />
+                        </td>
                     </tr>
                     <tr class="table-row">
                         <td><img style="width: 30px;" src="..\assets\profile-images\Ellipse -4.png"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>Mohammed Salman Iqbal</td>
+                        <td>Female</td>
+                        <td>
+                            <label class="department">Sales</label>
+                            <label class="department">HR</label>
+                            <label class="department">Finance</label>
+                        </td>
+                        <td>10,000</td>
+                        <td>29 Oct 2019</td>
+                        <td>
+                            <img src="..\assets\icons\delete-black-18dp.svg" class="action" />
+                            <img src="..\assets\icons\create-black-18dp.svg" class="action" />
+                        </td>
                     </tr>
                 </table>
             </div>
         </div>
     </div>
 </body>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        createInnerHtml();
+    })
+    const createInnerHtml = () => {
+        const headerHtml = "<th></th>" +
+            "<th>Name</th>" +
+            "<th>Gender</th>" +
+            "<th>Department</th>" +
+            "<th>Salary</th>" +
+            "<th>Start Date</th>" +
+            "<th>Actions</th>";
+        let innerHtml = `${headerHtml}`;
+        let empList;
+        var array;
+        fetch("..\assets\json\db.json")
+            .then(response => response.json())
+            .then(data => {
+                empList = data.employee;
+                array = [...empList];
+                for (var i = 0; i < array.length; i++) {
+                    innerHtml = `${innerHtml}
+        <tr class="table-row">
+            <td><img style="width: 30px;" src=${array[i].profileUrl} /></td>
+            <td>${array[i].name}</td>
+            <td>${array[i].gender}</td>
+            <td>${array[i].departMent}</td>
+            <td>${array[i].salary}</td>
+            <td>${array[i].startDate}</td>
+            <td>
+                <div>
+                    <img src="../assets/icons/create-black-18dp.svg"/>
+                    <img src="../assets/icons/delete-black-18dp.svg"/>
+                </div>
+            </td>
+        </tr>` ;
+                }
+                document.getElementById('display-table').innerHTML = innerHtml;
+            });
+    }
+</script>
 <style>
     .logo {
         width: 50px;
@@ -168,15 +244,31 @@
         font-size: 14px;
         letter-spacing: 0px;
         color: #FFFFFF;
-        text-transform: uppercase;
+
         height: 30px;
         border-collapse: collapse;
     }
-    .table-row{
+
+    .table-row {
         background: white;
         color: black;
         border: none;
         height: 40px;
+    }
+
+    .department {
+        font-size: 15px;
+        background: #bdee1c;
+        border-radius: 20px;
+        padding: 8px;
+    }
+
+    #upper-case {
+        text-transform: uppercase;
+    }
+
+    .action {
+        padding: 10px;
     }
 </style>
 
