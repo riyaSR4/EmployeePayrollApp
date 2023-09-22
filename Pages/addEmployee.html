@@ -135,6 +135,12 @@
     </div>
 </body>
 <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        var data = JSON.parse(localStorage.getItem("obj"));
+        console.log(data);
+        document.getElementById("name").value = data.name;
+        document.getElementById("salary").value = data.salary;
+    })
     let name = "";
     let profileImage = "";
     let gender = "";
@@ -169,29 +175,30 @@
     function commentsChange(event) {
         comment = event.target.value;
     }
-    function submitClick(){
-        console.log(name+"\n"+profileImage+"\n"+gender+"\n"+dept+"\n"+sal+"\n"+day+":"+month+":"+year+"\n");
-        var obj={
-            name:name,
-            profileImage:profileImage,
-            gender:gender,
-            department:dept,
-            salary:sal,
-            dob:day+":"+month+":"+year,
-            comments:comment
+    function submitClick() {
+        console.log(name + "\n" + profileImage + "\n" + gender + "\n" + dept + "\n" + sal + "\n"
+            + day + ":" + month + ":" + year + "\n" + comment);
+        var obj = {
+            name: name,
+            profileImage: profileImage,
+            gender: gender,
+            department: dept,
+            salary: sal,
+            dob: day + ":" + month + ":" + year,
+            comments: comment
         }
-        localStorage.setItem("EmpObject",obj);
+        localStorage.setItem("EmpObject", JSON.stringify(obj));
         var retrieval = localStorage.getItem("EmpObject");
         console.log(retrieval);
     }
-    function resetClick(){
-        name="";
-        document.getElementById("name").value="";
-        sal="";
-        document.getElementById("salary").value="";
+    function resetClick() {
+        name = "";
+        document.getElementById("name").value = "";
+        sal = "";
+        document.getElementById("salary").value = "";
     }
-    function cancelClick(){
-        window.location.href("employeeHome.html");
+    function cancelClick() {
+        window.location.href = "employeeHome.html";
     }
 </script>
 <style>
